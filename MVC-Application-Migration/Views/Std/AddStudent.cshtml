@@ -1,0 +1,50 @@
+﻿@model Studentregister
+@{
+    ViewData["Title"] = "AddStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AddStudent</h1>
+
+<div class="card">
+    <div class="card-header bg-success text-white text-uppercase">
+        <h4>Add Student</h4>
+    </div>
+    <div class="card-body">
+        <form asp-action="AddStudent">
+            <div class="form-group">
+                <label for="Std_Name">Student Name</label>
+                <input type="text" asp-for="Studentname" class="form-control" id="Std_Name">
+                <span asp-validation-for="Studentname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Std_Branch">
+                    Studet Branch
+                </label>
+                <input type="text" asp-for="Studentbranch" class="form-control"
+                       id="Std_Branch">
+                <span asp-validation-for="Studentbranch" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Std_RollNo">
+                    Salary
+                </label>
+                <input type="text" asp-for="Studentroll" class="form-control" id="Std_RollNo">
+                <span asp-validation-for="Studentroll" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-outline-success rounded-0">Submit</button>
+        </form>
+        @if (TempData["msg"] != null)
+        {
+            <script>
+                alert('@TempData["msg"].ToString();');
+                window.location.href = "@Url.Action("AddStudent","Std")";
+            </script>
+        }
+    </div>
+</div>
+
+
+
+
+

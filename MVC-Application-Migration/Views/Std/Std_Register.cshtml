@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Studentregister>
+@{
+    ViewData["Title"] = "Std_Register";
+}
+
+<div>
+    <h1 style="text-align:center;"> Stduent Details</h1>
+ <table class="table table-bordered table-responsive table-dark table-hover">
+ <tr>
+ <th>Id</th>
+ <th>Name</th>
+ <th>Department</th>
+ <th>Salary</th>
+ <th>Actions</th>
+ </tr>
+        @foreach (Studentregister item in Model)
+ {
+ <tr>
+ <td>@item.id</td>
+ <td>@item.Studentname</td>
+ <td>@item.Studentbranch</td>
+ <td>@item.Studentroll</td>
+ <td>
+ <a asp-action="EditStudent" asp-route-id="@item.id">Edit</a>
+ <a asp-action="DeleteStudent" asp-route-id="@item.id">Delete</a>
+ </td>
+ </tr>
+ }
+ </table>
+</div>
